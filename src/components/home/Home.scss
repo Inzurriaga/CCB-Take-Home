@@ -1,0 +1,151 @@
+.search-container {
+  position: relative;
+  color: #ffffff;
+  height: 600px;
+  width: 100%;
+  margin-bottom: 40px;
+  background-image: url("../../assets/popcorn-movies-tickets-cinema.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    position: relative;
+    z-index: 5;
+    h2 {
+      font-size: 4em;
+      &:nth-child(2) {
+        font-size: 3em;
+      }
+    }
+  }
+  &::after {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    position: absolute;
+    transition: 0.2s;
+    opacity: 0.5;
+  }
+}
+
+.filter-nav {
+  z-index: 5;
+  top: 80px;
+  position: sticky;
+  nav {
+    margin: 0 0 40px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    border: solid 2px #21D4FD;
+    width: 400px;
+    border-radius: 30px;
+    background-color: #ffffff;
+    transition: 0.5s;
+    button {
+      all: unset;
+      padding: 10px;
+      height: 100%;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+    .selected {
+      background-color: #21D4FD;
+      color: #ffffff;
+    }
+  }
+  .scroll {
+    margin: 0 0 40px 0;
+    border-radius: 0;
+    color: #ffffff;
+    border: none;
+    width: 100%;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    .selected {
+      background: #ffffff;
+      color: #21D4FD;
+    }
+  }
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie-card {
+  cursor: pointer;
+  z-index: 0;
+  position: relative;
+  box-sizing: border-box;
+  height: 450px;
+  width: 300px;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  transition: 0.2s;
+  img {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .movie-text {
+    box-sizing: border-box;
+    opacity: 0;
+    z-index: 3;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    transition: 0.2s;
+    color: #ffffff;
+    h3 {
+      font-size: 2em;
+      margin: 0;
+    }
+    h4 {
+      color: #c0ccda;
+    }
+  }
+  &::after {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    position: absolute;
+    opacity: 0;
+    transition: 0.2s;
+  }
+  &:hover {
+    &::after {
+      opacity: 0.5;
+    }
+    .movie-text {
+      opacity: 1;
+    }
+    transform: scale(1.01);
+  }
+}
+
+.search-error {
+  p {
+    font-size: 4em;
+  }
+}
